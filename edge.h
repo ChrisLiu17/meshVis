@@ -3,7 +3,6 @@
 
 #include <QGraphicsItem>
 
-
 class Node;
 
 //! [0]
@@ -20,7 +19,10 @@ public:
 
     void adjust();
 
-    enum { Type = UserType + 2 };
+    enum
+    {
+        Type = UserType + 2
+    };
     int type() const override { return Type; }
 
 protected:
@@ -34,11 +36,9 @@ private:
     QPointF destPoint;
     qreal arrowSize = 10;
 
-    QList<QPointF *> breakPoints;   // 贝塞尔曲线端点的坐标
+    QList<QPointF *> breakPoints; // 贝塞尔曲线端点的坐标
 
-    int flags;       // 文本显示的参数
-
-
+    int flags; // 文本显示的参数
 };
 //! [0]
 

@@ -8,13 +8,12 @@
 class Edge;
 class GraphWidget;
 
-
-//typedef struct{
-//    QString node_ipaddr;
-//    QString node_id;
-//    QString gps;
-//    int node_pso_x;
-//    int node_pos_y;
+// typedef struct{
+//     QString node_ipaddr;
+//     QString node_id;
+//     QString gps;
+//     int node_pso_x;
+//     int node_pos_y;
 
 //}NodeInfo_s;
 //! [0]
@@ -25,43 +24,42 @@ public:
     QString node_ipaddr;
     int node_time;
     int node_pos_x;
-    int node_pos_y;                       //
-
+    int node_pos_y; //
 
     Node(GraphWidget *graphWidget);
-
 
     void addEdge(Edge *edge);
     QList<Edge *> edges() const;
 
-    enum { Type = UserType + 1 };
+    enum
+    {
+        Type = UserType + 1
+    };
     int type() const override { return Type; }
 
-//    void calculateForces();
+    //    void calculateForces();
     bool advancePosition();
 
-    QRectF boundingRect() const override;                                                                           //返回绘制item大概区域
-    QPainterPath shape() const override;                                                                            //返回item的精准轮廓
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;                //绘制item内容
+    QRectF boundingRect() const override;                                                            //返回绘制item大概区域
+    QPainterPath shape() const override;                                                             //返回item的精准轮廓
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override; //绘制item内容
 
 protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
-//    void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+    //    void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
 
 public:
     QList<Edge *> edgeList;
-private:
 
+private:
     QPointF newPos;
     GraphWidget *graph = nullptr;
 
     int flags;
 };
-
-
 
 //! [0]
 

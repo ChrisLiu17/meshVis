@@ -13,13 +13,13 @@ class GraphWidget : public QGraphicsView
 public:
     GraphWidget(QWidget *parent = nullptr);
 
-    void addNode(Node *node);                   //
-    QList<Node *> nodes() const;                //
+    void addNode(Node *node);    //
+    QList<Node *> nodes() const; //
 
     void itemMoved();
     void json_node(QJsonArray nodearr);
 public slots:
-    void shuffle();     //拖动
+    void shuffle(); //拖动
     void zoomIn();
     void zoomOut();
 
@@ -33,21 +33,19 @@ protected:
     void drawBackground(QPainter *painter, const QRectF &rect) override;
 
     void scaleView(qreal scaleFactor);
+
 public:
     QGraphicsScene *m_scene = nullptr;
 
 private:
     int timerId = 0;
     Node *centerNode = nullptr;
-    //Node *Node_sta;
+    // Node *Node_sta;
     QList<Node *> NodeList;
     GraphWidget *graphswidget_m = nullptr;
     Node *node_1 = nullptr;
-    //QList<Node *> m_NodeList;
-    //QGraphicsWidget *gra_item;
-
-
-
+    // QList<Node *> m_NodeList;
+    // QGraphicsWidget *gra_item;
 };
 //! [0]
 
